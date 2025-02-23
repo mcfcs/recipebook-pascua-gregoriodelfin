@@ -75,9 +75,9 @@ def basic_params(request, id="list"):
     if id == "1":
         ctx = content["recipes"][0]
         return render(request, 'recipe.html', ctx)
-    
+
     if id == "2":
         ctx = content["recipes"][1]
         return render(request, 'recipe.html', ctx)
-    
+
     return render(request, 'recipehome.html', content)
