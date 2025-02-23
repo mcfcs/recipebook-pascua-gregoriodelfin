@@ -64,16 +64,19 @@ content = {
         }
     ]
 }
-# If site is /list, should return the whole dict. else:
-# if recipe/1: content[recipes][0], recipe/2: content[recipes[1]]
 
-def basicParams(request, id="list"):
+def basic_params(request, id="list"):
+    '''     
+    @fn basic_params
+    @brief returns the proper html site and
+    context from a given id.
 
+    '''
     if id == "1":
         ctx = content["recipes"][0]
         return render(request, 'recipe.html', ctx)
     
-    elif id == "2":
+    if id == "2":
         ctx = content["recipes"][1]
         return render(request, 'recipe.html', ctx)
     
