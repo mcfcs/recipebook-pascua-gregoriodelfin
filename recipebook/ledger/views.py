@@ -68,10 +68,13 @@ content = {
 # if recipe/1: content[recipes][0], recipe/2: content[recipes[1]]
 
 def basicParams(request, str="list"):
+
     if str == "1":
         ctx = content["recipes"][0]
+        return render(request, 'recipe.html', ctx)
+    
     elif str == "2":
         ctx = content["recipes"][1]
-    else:
-        ctx = content
-    return render(request, 'recipe.html', ctx)
+        return render(request, 'recipe.html', ctx)
+    
+    return render(request, 'recipehome.html', content)
