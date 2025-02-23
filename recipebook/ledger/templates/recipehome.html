@@ -2,6 +2,6 @@
 {% block title %} Recipe {% endblock %}
 {% block content %}
     {% for recipe in recipes %}
-    <l1><a href="{{ recipe.link }}">{{ recipe.name }}</a></li>
+        <li><a href="{{ recipe.link }}">{{ recipe.name }}</a></li>
     {% endfor %}
-{% end block %}
+{% endblock %}
