@@ -64,3 +64,14 @@ content = {
         }
     ]
 }
+# If site is /list, should return the whole dict. else:
+# if recipe/1: content[recipes][0], recipe/2: content[recipes[1]]
+
+def basicParams(request, str="list"):
+    if str == "1":
+        ctx = content["recipes"][0]
+    elif str == "2":
+        ctx = content["recipes"][1]
+    else:
+        ctx = content
+    return render(request, 'recipe.html', ctx)
