@@ -3,7 +3,7 @@ from django.db import models
 from django.urls import reverse
 
 class Ingredient(models.Model):
-    pass
+    name = models.CharField(max_length=100)
 
 class Recipe(models.Model):
     pass
