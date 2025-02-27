@@ -6,7 +6,7 @@ class Ingredient(models.Model):
     name = models.CharField(max_length=100)
 
 class Recipe(models.Model):
-    pass
+    name = models.CharField(max_length=100)
 
 class RecipeIngredient(models.Model):
     pass
