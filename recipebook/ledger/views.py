@@ -1,5 +1,8 @@
-from django.shortcuts import render
-from django.views.generic import *
+"""
+This module registers the views of the django html
+"""
+
+from django.views.generic import ListView, DetailView
 from .models import Recipe
 
 class RecipeListView(ListView):
