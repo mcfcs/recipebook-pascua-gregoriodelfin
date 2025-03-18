@@ -5,7 +5,11 @@
     </head>
     <body>
         <h1>Recipe Book</h1>
+        <div id="content">
+            {%block content %}{% endblock %}
+        </div>
         {% if request.user.is_authenticated %}
+        <hr>
         <form action="{% url 'logout' %}" method="POST">
             {% csrf_token %}
             {{ form.as_p }}
@@ -14,8 +18,5 @@
         {% else %}
             <a href="{% url 'login' %}">Login</a>
         {% endif %}
-        <div id="content">
-            {%block content %}{% endblock %}
-        </div>
     </body>
 </html>
