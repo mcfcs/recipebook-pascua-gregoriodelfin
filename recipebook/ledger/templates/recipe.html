@@ -2,6 +2,7 @@
 {% block title %} {{name}} {% endblock %}
 {% block content %}
     {{object.name}}
+    <p>Author: {{object.author}}</p>
     {%for ingredient in object.recipe.all%}
     <li>{{ingredient.Ingredient.name}} : {{ingredient.Quantity}}</li>
     {% endfor %}
