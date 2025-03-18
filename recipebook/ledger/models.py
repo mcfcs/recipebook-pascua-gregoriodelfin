@@ -4,7 +4,7 @@
 
 from django.db import models
 from django.urls import reverse
-from django.contrib.auth.models import User
+from user.models import Profile
 
 class Ingredient(models.Model):
     """
@@ -23,7 +23,7 @@ class Recipe(models.Model):
     @brief Instantiates the Recipe model
     """
     name = models.CharField(max_length=100)
-    author = models.CharField(max_length=50)
+    author = models.ForeignKey(Profile, null=True, on_delete=models.SET_NULL)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
