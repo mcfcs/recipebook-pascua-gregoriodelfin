@@ -33,7 +33,7 @@ class ProfileInline(admin.StackedInline):
     model = Profile
     can_delete = False
 
-class UserAdmin(admin.BaseUserAdmin):
+class UserAdmin(BaseUserAdmin):
     inlines = [ProfileInline,]
 
 admin.site.register(Recipe, RecipeAdmin)
