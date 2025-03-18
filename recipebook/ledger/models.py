@@ -4,6 +4,7 @@
 
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 class Ingredient(models.Model):
     """
@@ -36,3 +37,8 @@ class RecipeIngredient(models.Model):
     Quantity = models.CharField(max_length=100)
     Ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name="ingredient")
     Recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="recipe")
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    Name = models.CharField(max_length=50)
+    Bio = models.CharField(max_length=255)
