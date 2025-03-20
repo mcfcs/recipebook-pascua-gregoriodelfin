@@ -23,7 +23,7 @@ class Recipe(models.Model):
     @brief Instantiates the Recipe model
     """
     name = models.CharField(max_length=100)
-    author = models.ForeignKey(Profile, null=True, on_delete=models.SET_NULL)
+    author = models.CharField(max_length=100)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
