@@ -37,9 +37,9 @@ class RecipeIngredient(models.Model):
     """
     @brief Links Recipe & Ingredient Models.
     """
-    Quantity = models.CharField(max_length=100)
-    Ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name="ingredient")
-    Recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="recipe")
+    quantity = models.CharField(max_length=100)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name="ingredient")
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="recipe")
 
     def __str__(self):
-        return f"{self.Recipe}: {self.Ingredient}, {self.Quantity}"
+        return f"{self.recipe}: {self.ingredient} - {self.quantity}"
