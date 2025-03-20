@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block title %} {{name}} {% endblock %}
 {% block content %}
-    {{object.name}}
-    {%for ingredient in object.recipe.all%}
-    <li>{{ingredient.Ingredient.name}} : {{ingredient.Quantity}}</li>
+    <p>Recipe Title: {{recipe.name}}</p>
+    <p>Author: {{recipe.author}}</p>
+    {%for ingredient in recipe.recipe.all%}
+    <li>{{ingredient.ingredient.name}} : {{ingredient.quantity}}</li>
     {% endfor %}
 {% endblock %}
