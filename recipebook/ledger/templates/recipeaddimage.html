@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %} Recipe Book {% endblock %}
+{% block content %}
+<h1> Add your image: </h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+<p><a href="{% url 'recipe-list' %}">Return to Recipe List</a></p>
+{% endblock %}

@@ -4,4 +4,6 @@
     {% for recipe in recipe_list %}
         <li><a href="{% url 'recipe-detail' recipe.id %}">{{ recipe.name }}</a></li>
     {% endfor %}
+
+    <a href="{% url 'recipe-add' %}">Create Recipe</a>
 {% endblock %}

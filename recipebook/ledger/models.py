@@ -4,7 +4,6 @@
 
 from django.db import models
 from django.urls import reverse
-from user.models import Profile
 
 class Ingredient(models.Model):
     """
@@ -43,3 +42,14 @@ class RecipeIngredient(models.Model):
 
     def __str__(self):
         return f"{self.recipe}: {self.ingredient} - {self.quantity}"
+    
+class RecipeImage(models.Model):
+    """
+    @brief Model for the recipe image.
+    """
+
+    image = models.ImageField(upload_to='images/', null=False)
+    description = models.CharField(max_length=255)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="images")
+
+

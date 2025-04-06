@@ -1,9 +1,24 @@
 {% extends 'base.html' %}
 {% block title %} {{name}} {% endblock %}
 {% block content %}
+
     <p>Recipe Title: {{recipe.name}}</p>
     <p>Author: {{recipe.author}}</p>
+
     {%for ingredient in recipe.recipe.all%}
-    <li>{{ingredient.ingredient.name}} : {{ingredient.quantity}}</li>
+        <li>{{ingredient.ingredient.name}} : {{ingredient.quantity}}</li>
     {% endfor %}
+
+    {% if recipe.images.all %}
+        {% for image in recipe.images.all %}
+            <div>
+                <img src="{{ image.image.url }}" alt="{{ image.description }}">
+            </div>
+        {% endfor %}
+    {% else %}
+        <p><a href="{% url 'recipe-add-image' pk=recipe.pk %}">Add an image</a></p>
+    {% endif %}
+
+    <p><a href="{% url 'recipe-list' %}">Return to Recipe List</a></p>
+
 {% endblock %}

@@ -3,7 +3,7 @@ This module registers the models Recipe, RecipeIngredient, and Ingredient
 """
 
 from django.contrib import admin
-from .models import Recipe, RecipeIngredient, Ingredient
+from .models import Recipe, RecipeIngredient, Ingredient, RecipeImage
 
 class RecipeAdmin(admin.ModelAdmin):
     """
@@ -23,6 +23,13 @@ class IngredientAdmin(admin.ModelAdmin):
     """
     model = Ingredient
 
+class RecipeImageAdmin(admin.ModelAdmin):
+    """
+    @brief Instantiates RecipeImage model to RecipeImageAdmin class.
+    """
+    model = RecipeImage
+
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(RecipeIngredient, RecipeIngredientAdmin)
 admin.site.register(Ingredient, IngredientAdmin)
+admin.site.register(RecipeImage, RecipeImageAdmin)
