@@ -9,15 +9,13 @@
         <li>{{ingredient.ingredient.name}} : {{ingredient.quantity}}</li>
     {% endfor %}
 
-    {% if recipe.images.all %}
-        {% for image in recipe.images.all %}
-            <div>
-                <img src="{{ image.image.url }}" alt="{{ image.description }}">
-            </div>
-        {% endfor %}
-    {% else %}
-        <p><a href="{% url 'recipe-add-image' pk=recipe.pk %}">Add an image</a></p>
-    {% endif %}
+    {% for image in recipe.images.all %}
+        <div>
+            <img src="{{ image.image.url }}" alt="{{ image.description }}">
+        </div>
+    {% endfor %}
+
+    <p><a href="{% url 'recipe-add-image' pk=recipe.pk %}">Add an image</a></p>
 
     <p><a href="{% url 'recipe-list' %}">Return to Recipe List</a></p>
 
